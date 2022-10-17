@@ -55,6 +55,16 @@ return packer.startup(function(use)
     requires = { 'kyazdani42/nvim-web-devicons', opt = true },
     config = { get_config('lualine') }
   }
+
+  use {
+    'nvim-telescope/telescope.nvim', tag = '0.1.0',
+    requires = { {'nvim-lua/plenary.nvim'} }
+  }
+
+  -- luarocks
+  use_rocks { 'luasocket' }
+  use_rocks { 'json-lua' }
+  use_rocks { 'inspect' }
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
   if PACKER_BOOTSTRAP then
