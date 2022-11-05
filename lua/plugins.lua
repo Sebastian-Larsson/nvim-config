@@ -37,11 +37,8 @@ packer.init({
 
 
 -- Get config of package
-function get_config(package)
-    path = ('config.'..package)
-    return function() 
-        require(path)
-    end
+local function get_config(package)
+    return string.format('require("config/%s")', package)
 end
 
 return packer.startup(function(use)
