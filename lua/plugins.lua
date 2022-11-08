@@ -55,6 +55,14 @@ return packer.startup(function(use)
     config = { get_config('lualine') }
   }
 
+  -- Treesitter
+  use {
+    'nvim-treesitter/nvim-treesitter',
+    run = ':TSUpdate',
+    config = { get_config('treesitter') }
+  }
+
+  -- Telescope
   use {
     'nvim-telescope/telescope.nvim', tag = '0.1.0',
     requires = { {'nvim-lua/plenary.nvim'} }
