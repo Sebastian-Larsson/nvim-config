@@ -35,7 +35,6 @@ packer.init({
 	},
 })
 
-
 -- Get config of package
 local function get_config(package)
     return string.format('require("config/%s")', package)
@@ -43,13 +42,16 @@ end
 
 return packer.startup(function(use)
   use 'wbthomason/packer.nvim'
-  
+
   -- Nord
   use 'arcticicestudio/nord-vim'
 
+  use 'folke/tokyonight.nvim'
+
+  -- Lualine
   use {
     'nvim-lualine/lualine.nvim',
-    requires = { 'kyazdani42/nvim-web-devicons', opt = true },
+    requires = { 'kyazdani42/nvim-web-devicons'},
     config = { get_config('lualine') }
   }
 
