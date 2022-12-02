@@ -2,16 +2,15 @@ local fn = vim.fn
 
 local install_path = fn.stdpath('data')..'/site/pack/packer/start/packer.nvim'
 if fn.empty(fn.glob(install_path)) > 0 then
-	PACKER_BOOTSTRAP = fn.system({'git', 
-		   'clone', 
-		   '--depth', 
-		   '1', 
-		   'https://github.com/wbthomason/packer.nvim', 
+	PACKER_BOOTSTRAP = fn.system({'git',
+		   'clone',
+		   '--depth',
+		   '1',
+		   'https://github.com/wbthomason/packer.nvim',
 		   install_path})
 	vim.cmd [[packadd packer.nvim]]
 	print "installing packer... Exit neovim"
 end
-
 
 vim.cmd [[
   augroup packer_user_config
@@ -43,10 +42,24 @@ end
 return packer.startup(function(use)
   use 'wbthomason/packer.nvim'
 
-  -- Nord
+  -- Colorschemes
   use 'arcticicestudio/nord-vim'
-
   use 'folke/tokyonight.nvim'
+
+  -- LSP
+  use { "williamboman/mason.nvim" }
+  use { 'williamboman/mason-lspconfig.nvim' }
+  use { 'neovim/nvim-lspconfig' }
+  use { 'jose-elias-alvarez/null-ls.nvim', config = get_config('null-ls')}
+  -- CMP
+  use { 'hrsh7th/cmp-nvim-lsp' }
+  use { 'hrsh7th/cmp-buffer' }
+  use { 'hrsh7th/cmp-path' }
+  use { 'hrsh7th/cmp-cmdline' }
+  use { 'hrsh7th/nvim-cmp', config = { get_config('cmp')}}
+
+  -- Snip
+  use { 'hrsh7th/cmp-vsnip' }
 
   -- Lualine
   use {

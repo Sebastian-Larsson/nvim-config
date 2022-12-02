@@ -7,3 +7,5 @@ require('mappings')
 require('commands')
 
 require('colorscheme')
+
+require('lsp')
