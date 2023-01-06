@@ -11,4 +11,5 @@ opt.smartindent = true
 opt.tabstop = 4
 opt.softtabstop = 4
 
+opt.colorcolumn = "81"
 o.termguicolors = true
