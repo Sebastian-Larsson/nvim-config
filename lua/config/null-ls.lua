@@ -11,7 +11,7 @@ local sources = {
     null_ls.builtins.formatting.isort,
     null_ls.builtins.diagnostics.luacheck,
     null_ls.builtins.formatting.lua_format.with({
-        extra_args = { "--column-limit=80", "--no-keep-simple-function-one-line" }
+        extra_args = { "--column-limit=100", "--no-keep-simple-function-one-line" }
     }),
 }
 
